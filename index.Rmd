@@ -1,12 +1,8 @@
 ---
 title: "EW"
-output: 
-  html_document:
-    toc: true
-    toc_float: true
 ---
 
-### Welcome!
+Welcome!
 
 My name is Eric Wang and this is my personal website.
 

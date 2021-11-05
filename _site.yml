@@ -17,4 +17,4 @@ navbar:
       href: http://github.com/ericwanghu/
 output:
   html_document:
-    theme: cosmo
+    theme: simplex
