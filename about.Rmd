@@ -1,0 +1,19 @@
+---
+title: "About Me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+### Hello!
+
+I am currently attending Columbia University for my MS in biostatistics and pharmaceutical statistics, and I am also working part-time at Columbia Irving Medical Center’s data management unit. I recently graduated from UC San Diego with a BS in public health epidemiology and a minor in business. Feel free to contact me at wang.eric@columbia.edu!
+
+![](images/Profile Pic.jpeg)
+
+<img src="images/pfp.jpeg" style="width:89%">
+
+## Links
+
+* [LinkedIn](https://www.linkedin.com/in/ericwanggg)

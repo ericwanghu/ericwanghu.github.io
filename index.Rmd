@@ -1,0 +1,15 @@
+---
+title: "Eric Wang"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# Welcome
+
+![](https://media.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.gif)
+
+## Link to page within the site
+
+[About Me](about.html)
