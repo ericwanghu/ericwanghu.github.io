@@ -1,0 +1,15 @@
+---
+title: "Connect"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+Feel free to connect with me on any of the following social platforms!
+
+[LinkedIn](https://www.linkedin.com/in/ericwanggg)
+
+[Twitter](https://twitter.com/Ericwanggg)
+
+[Instagram](https://www.instagram.com/ericwanggg/)
