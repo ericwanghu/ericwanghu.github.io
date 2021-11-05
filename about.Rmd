@@ -14,8 +14,4 @@ Feel free to check out [LinkedIn](https://www.linkedin.com/in/ericwanggg) and co
 
 <img src="images/Profile Pic.jpeg" style="width:100%"> 
 
-
-
-
-
 Click here to return to the [main](index.html) page.

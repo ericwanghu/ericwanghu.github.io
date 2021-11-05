@@ -1,0 +1,86 @@
+---
+title: "Eric Wang"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# My Resume
+
+*Education*
+
+Columbia University - New York, NY
+M.S. Biostatistics
+
+- Pharmaceutical Statistics Track
+- Expected Graduation: Spring 2023
+
+UC San Diego - La Jolla, CA
+
+B.S. Public Health - Epidemiology
+Minor in Business | PofC in Japanese Studies
+Honors with Highest Distinction
+
+- Overall GPA: 3.71 | Major GPA: 3.82
+- Graduated: Spring 2021
+
+*Publications & Appearances*
+
+- Co-Author: D. Adamowicz, E. Lee, B. Palmer, T. Nguyen, E. Wang, X. Tu, C. Liu, D. Jeste, "Associations Between Inflammatory Marker Profiles and Cognitive Functioning in Adults With Schizophrenia and Non-Psychiatric Comparison Subjects", Biological Psychiatry, Volume 89, Issue 9, Pages S376-S377, 2021,
+
+doi: 10.1016/j.biopsych.2021.02.935.
+
+- Acknowledgement: M. Wang, J. Zhang and X. You, "Machine-Type Communication for Maritime Internet of Things: A Design," IEEE Communications Surveys & Tutorials, Volume 22, No. 4, Pages 2550-2585, 2020, 
+
+doi: 10.1109/COMST.2020.3015694.
+
+*Career History*
+
+Data Management Specialist
+Columbia Irving Medical Center | Oct 2021 - Present
+
+- Review, analyze and interpret results from standardized neurological and neurophysiological exams
+- Decipher data from the concussion settlement between the NFL and the NFL Players Association
+- Enter findings into case reports
+
+Biostatistics Intern
+UC San Diego Health | Jun 2020 - Aug 2021
+
+- Investigated differential associations of blood-based biomarkers with cognitive outcomes between a group of schizophrenic patients and normal controls
+- Used partial least squares regression to create composite variables from biomarkers and used them as predictors for analysis
+- Created data tables on Word for colleagues to use as a reference for the research publication
+
+Public Health Honors Practicum
+UC San Diego | Sep 2020 - Jun 2021
+
+- Conducted observational study surveying popular locations throughout San Diego to collect data regarding COVID-19 mask adherence using Qualtrics
+- Examined data using Excel and SPSS to research mask adherence based on location and age to inform country officials on COVID-19 responses to improve regulations
+
+Research Intern
+Nanjing University | Jan 2020 - Nov 2020
+
+- Collected maritime service data and analyzed the statistical properties of message packet size and arrival time
+- Edited paper for publication
+
+Qualitative Researcher
+UC San Diego | Mar 2020 - Jun 2020
+
+- Administered in-depth interviews and observational studies with study participants to observe impact of COVID-19 on student's mental health
+- Coded interviews using MAXQDA until data saturation was reached in our database for accurate data analysis
+- Analyzed resulting data using Excel to present findings and recommendations through presentations and policy briefs
+
+Data Analyst Intern
+The University of Tokyo | Oct 2019 - Dec 2019
+
+- Collected and analyzed network metadata using SPSS andstatistical methods such as ANOVA and Friedman test
+- Monitored health IoT and security monitoring data to reveal problem areas and identify focus points
+- Designed charts and graphs using SPSS to visualize statistical trends and correlations
+
+Research Intern
+UC San Diego | Jun 2019 - Aug 2019
+
+Assisted PhD research on cell signaling pathways through conducting weekly experiments and summarized weekly findings via project reports
+Performed PCRs, gel electrophoresis, Gibson assembly, and imaging daily to support research findings
+
+Click here to return to the [main](index.html) page.
