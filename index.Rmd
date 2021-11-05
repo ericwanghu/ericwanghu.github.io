@@ -8,7 +8,7 @@ output:
 
 # Welcome
 
-![](https://media.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.gif)
+<img src="images/pfp.jpeg" style="width:100%">
 
 ## Link to page within the site
 
