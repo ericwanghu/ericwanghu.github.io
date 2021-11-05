@@ -20,5 +20,3 @@ What do you want to see next?
 [My resume](resume.html)
 
 [Connect with me](connect.html)
-
-Click here to return to the [main](index.html) page.

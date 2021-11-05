@@ -10,7 +10,7 @@ output:
 
 I am currently attending Columbia University for my MS in biostatistics and pharmaceutical statistics, and I am also working part-time at Columbia Irving Medical Center’s data management unit. I recently graduated from UC San Diego with a BS in public health epidemiology and a minor in business. Feel free to contact me at wang.eric@columbia.edu!
 
-Feel free to check out [LinkedIn](https://www.linkedin.com/in/ericwanggg) and connect with me!
+Feel free to [connect](connect.html) with me!
 
 <img src="images/Profile Pic.jpeg" style="width:100%"> 
 
