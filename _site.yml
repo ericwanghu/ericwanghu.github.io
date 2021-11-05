@@ -5,6 +5,8 @@ navbar:
   right:
     - text: "About Me"
       href: about.html
+    - text: "Resume"
+      href: resume.html
     - icon: fa-envelope fa-lg
       href: mailto:<wang.eric@columbia.com>
     - icon: fa-github fa-lg

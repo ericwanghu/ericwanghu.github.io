@@ -1,16 +1,16 @@
 ---
-title: "Eric Wang"
+title: "My Resume"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# My Resume
 
-*Education*
+**Education**
 
 Columbia University - New York, NY
+
 M.S. Biostatistics
 
 - Pharmaceutical Statistics Track
@@ -19,23 +19,23 @@ M.S. Biostatistics
 UC San Diego - La Jolla, CA
 
 B.S. Public Health - Epidemiology
+
 Minor in Business | PofC in Japanese Studies
 Honors with Highest Distinction
 
 - Overall GPA: 3.71 | Major GPA: 3.82
 - Graduated: Spring 2021
 
-*Publications & Appearances*
+**Publications & Appearances**
 
 - Co-Author: D. Adamowicz, E. Lee, B. Palmer, T. Nguyen, E. Wang, X. Tu, C. Liu, D. Jeste, "Associations Between Inflammatory Marker Profiles and Cognitive Functioning in Adults With Schizophrenia and Non-Psychiatric Comparison Subjects", Biological Psychiatry, Volume 89, Issue 9, Pages S376-S377, 2021,
-
-doi: 10.1016/j.biopsych.2021.02.935.
+    - doi: 10.1016/j.biopsych.2021.02.935.
 
 - Acknowledgement: M. Wang, J. Zhang and X. You, "Machine-Type Communication for Maritime Internet of Things: A Design," IEEE Communications Surveys & Tutorials, Volume 22, No. 4, Pages 2550-2585, 2020, 
 
-doi: 10.1109/COMST.2020.3015694.
+    - doi: 10.1109/COMST.2020.3015694.
 
-*Career History*
+**Career History**
 
 Data Management Specialist
 Columbia Irving Medical Center | Oct 2021 - Present
@@ -80,7 +80,18 @@ The University of Tokyo | Oct 2019 - Dec 2019
 Research Intern
 UC San Diego | Jun 2019 - Aug 2019
 
-Assisted PhD research on cell signaling pathways through conducting weekly experiments and summarized weekly findings via project reports
-Performed PCRs, gel electrophoresis, Gibson assembly, and imaging daily to support research findings
+- Assisted PhD research on cell signaling pathways through conducting weekly experiments and summarized weekly findings via project reports
+- Performed PCRs, gel electrophoresis, Gibson assembly, and imaging daily to support research findings
+
+**Achievements**
+
+- Honors with Highest Distinction (2021)
+- Public Health Honors Practicum (2020)
+- Provost's Honors (2017-2020)
+- Golden State Seal Merit (2017)
+- California State Seal of Biliteracy (2017)
+
+
+
 
 Click here to return to the [main](index.html) page.

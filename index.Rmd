@@ -1,15 +1,19 @@
 ---
-title: "Eric Wang"
+title: "EW"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# Welcome
+### Welcome!
+
+My name is Eric Wang and this is my personal website.
 
 <img src="images/pfp.jpeg" style="width:100%">
 
-## Link to page within the site
+**Links to page within the site**
 
 [About Me](about.html)
+
+[Resume](resume.html)
