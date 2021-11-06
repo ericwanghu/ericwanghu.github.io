@@ -1,6 +1,6 @@
 
 
-<center> <h1>Connect</h1> </center>
+<center> <h1>connect</h1> </center>
 
 <br>
 <center>
