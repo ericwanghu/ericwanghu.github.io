@@ -9,7 +9,7 @@ Welcome! Thank you for coming.
 
 My name is Eric Wang and this is my personal website.
 
-<img src="images/pfp.jpeg" style="width:100%">
+<img src="images/pfp.jpeg" style="width:75%">
 
 
 What do you want to check out?
