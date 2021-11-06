@@ -75,27 +75,3 @@ rest_inspec %>%
 
 ```
 
-### 
-
-```{r}
-
-rest_inspec %>%
-  select(boro, cuisine_description) %>%
-  filter(boro == "MANHATTAN") %>%
-  count(cuisine_description) %>%
-  mutate(cuisine_description = replace(cuisine_description,
-                                       cuisine_description == "Latin (Cuban, Dominican, Puerto Rican, South & Central American)", "Latin"),
-    cuisine_description = fct_reorder(cuisine_description, -n)) %>%
-  top_n(15) %>%
-  plot_ly(x = ~cuisine_description, 
-          y = ~n, 
-          color = ~cuisine_description,
-          type = "bar", 
-          colors = "viridis") %>%
-  layout(
-    xaxis = list(title = "rest_inspecaurant Type"), 
-    yaxis = list(title = 'Count'), 
-    showlegend = FALSE)
-
-```
-
