@@ -5,6 +5,8 @@ navbar:
   left:
     - text: "About Me"
       href: about.html
+    - text: 'Connect'
+      href: connect.html
     - text: 'Dashboard'
       href: dashboard.html
   right:
