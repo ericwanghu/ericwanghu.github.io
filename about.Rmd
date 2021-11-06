@@ -17,7 +17,7 @@ Department of Biostatistics,
 100 Haven Ave 17E,
 New York, New York 10032
 
-<img src="images/Profile Pic.jpeg" style="width:100%"> 
+<img src="images/Profile Pic.jpeg" style="width:50%"> 
 
 Click here to return to the [main](index.html) page.
 
