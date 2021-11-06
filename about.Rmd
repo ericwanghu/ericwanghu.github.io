@@ -1,11 +1,24 @@
----
-title: "About Me"
----
 
-I am currently attending Columbia University for my MS in biostatistics and pharmaceutical statistics, and I am also working part-time at Columbia Irving Medical Center’s data management unit. I recently graduated from UC San Diego with a BS in public health epidemiology and a minor in business. Feel free to contact me at wang.eric@columbia.edu!
 
-Feel free to [connect](connect.html) with me!
+<center> <h1>About me</h1> </center>
+
+<br>
+<center>
+
+I am currently attending Columbia University for my MS in biostatistics and pharmaceutical statistics, and I am also working part-time at Columbia Irving Medical Center’s data management unit. I recently graduated from UC San Diego with a BS in public health epidemiology and a minor in business. I am actively looking for a 2022 summer internship within the biostatistics and public health fields.Feel free to contact me at wang.eric@columbia.edu!
+
+Also don't forget to [connect](connect.html) with me :)
+
+*Find me at:*
+
+Columbia University,
+Mailman School of Public Health,
+Department of Biostatistics,
+100 Haven Ave 17E,
+New York, New York 10032
 
 <img src="images/Profile Pic.jpeg" style="width:100%"> 
 
 Click here to return to the [main](index.html) page.
+
+

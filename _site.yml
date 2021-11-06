@@ -5,10 +5,8 @@ navbar:
   right:
     - text: "About Me"
       href: about.html
-    - text: "Resume"
+    - icon: fa-address-book fa-lg
       href: resume.html
-    - text: "Plotly"
-      href: plotly.html
     - icon: fa-envelope fa-lg
       href: mailto:<wang.eric@columbia.com>
     - icon: fa-linkedin fa-lg

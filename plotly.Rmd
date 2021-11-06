@@ -6,15 +6,3 @@ output:
     toc_float: true
 ---
 
-```{r}
-
-library(tidyverse)
-library(p8105.datasets)
-library(plotly)
-
-```
-
-```{r}
-
-```
-

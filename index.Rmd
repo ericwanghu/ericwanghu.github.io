@@ -1,15 +1,18 @@
----
-title: "EW"
----
 
-Welcome!
+
+<center> <h1>EW</h1> </center>
+
+<br>
+<center>
+
+Welcome! Thank you for coming.
 
 My name is Eric Wang and this is my personal website.
 
 <img src="images/pfp.jpeg" style="width:100%">
 
 
-What do you want to see next?
+What do you want to check out?
 
 [More about me](about.html)
 

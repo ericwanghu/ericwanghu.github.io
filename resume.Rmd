@@ -1,18 +1,18 @@
 ---
-title: "My Resume"
+title: "Resume"
 ---
 
 
-**Education**
+### Education
 
-Columbia University - New York, NY
+**Columbia University** <div style="text-align: right"> *New York, NY* </div>
 
 M.S. Biostatistics
 
 - Pharmaceutical Statistics Track
 - Expected Graduation: Spring 2023
 
-UC San Diego - La Jolla, CA
+**UC San Diego** <div style="text-align: right"> *La Jolla, CA* </div>
 
 B.S. Public Health - Epidemiology
 
@@ -22,7 +22,7 @@ Honors with Highest Distinction
 - Overall GPA: 3.71 | Major GPA: 3.82
 - Graduated: Spring 2021
 
-**Publications & Appearances**
+### Publications & Appearances
 
 - Co-Author: D. Adamowicz, E. Lee, B. Palmer, T. Nguyen, E. Wang, X. Tu, C. Liu, D. Jeste, "Associations Between Inflammatory Marker Profiles and Cognitive Functioning in Adults With Schizophrenia and Non-Psychiatric Comparison Subjects", Biological Psychiatry, Volume 89, Issue 9, Pages S376-S377, 2021,
     - doi: 10.1016/j.biopsych.2021.02.935.
@@ -31,63 +31,65 @@ Honors with Highest Distinction
 
     - doi: 10.1109/COMST.2020.3015694.
 
-**Career History**
+### Career History
 
-Data Management Specialist
-Columbia Irving Medical Center | Oct 2021 - Present
+**Data Management Specialist**
+Columbia Irving Medical Center <div style="text-align: right"> *Oct 2021 - Present* </div> 
 
 - Review, analyze and interpret results from standardized neurological and neurophysiological exams
 - Decipher data from the concussion settlement between the NFL and the NFL Players Association
 - Enter findings into case reports
 
-Biostatistics Intern
-UC San Diego Health | Jun 2020 - Aug 2021
+**Biostatistics Intern**
+UC San Diego Health <div style="text-align: right"> *Jun 2020 - Aug 2021* </div>
 
 - Investigated differential associations of blood-based biomarkers with cognitive outcomes between a group of schizophrenic patients and normal controls
 - Used partial least squares regression to create composite variables from biomarkers and used them as predictors for analysis
 - Created data tables on Word for colleagues to use as a reference for the research publication
 
-Public Health Honors Practicum
-UC San Diego | Sep 2020 - Jun 2021
+**Public Health Honors Practicum**
+UC San Diego <div style="text-align: right"> *Sep 2020 - Jun 2021* </div>
 
 - Conducted observational study surveying popular locations throughout San Diego to collect data regarding COVID-19 mask adherence using Qualtrics
 - Examined data using Excel and SPSS to research mask adherence based on location and age to inform country officials on COVID-19 responses to improve regulations
 
-Research Intern
-Nanjing University | Jan 2020 - Nov 2020
+**Research Intern**
+Nanjing University <div style="text-align: right"> *Jan 2020 - Nov 2021* </div>
 
 - Collected maritime service data and analyzed the statistical properties of message packet size and arrival time
 - Edited paper for publication
 
-Qualitative Researcher
-UC San Diego | Mar 2020 - Jun 2020
+**Qualitative Researcher**
+UC San Diego <div style="text-align: right"> *Mar 2020 - Jun 2021* </div>
 
 - Administered in-depth interviews and observational studies with study participants to observe impact of COVID-19 on student's mental health
 - Coded interviews using MAXQDA until data saturation was reached in our database for accurate data analysis
 - Analyzed resulting data using Excel to present findings and recommendations through presentations and policy briefs
 
-Data Analyst Intern
-The University of Tokyo | Oct 2019 - Dec 2019
+**Data Analyst Intern**
+The University of Tokyo <div style="text-align: right"> *Oct 2019 - Dec 2019* </div> Oct 2019 - Dec 2019
 
 - Collected and analyzed network metadata using SPSS andstatistical methods such as ANOVA and Friedman test
 - Monitored health IoT and security monitoring data to reveal problem areas and identify focus points
 - Designed charts and graphs using SPSS to visualize statistical trends and correlations
 
-Research Intern
-UC San Diego | Jun 2019 - Aug 2019
+**Research Intern**
+UC San Diego <div style="text-align: right"> *Jun 2019 - Aug 2019* </div>
 
 - Assisted PhD research on cell signaling pathways through conducting weekly experiments and summarized weekly findings via project reports
 - Performed PCRs, gel electrophoresis, Gibson assembly, and imaging daily to support research findings
 
-**Achievements**
+### Achievements
 
-- Honors with Highest Distinction (2021)
-- Public Health Honors Practicum (2020)
-- Provost's Honors (2017-2020)
-- Golden State Seal Merit (2017)
-- California State Seal of Biliteracy (2017)
+- Honors with Highest Distinction <div style="text-align: right"> *2021* </div>
+- Public Health Honors Practicum <div style="text-align: right"> *2020* </div>
+- Provost's Honors <div style="text-align: right"> *2017 - 2020* </div>
+- Golden State Seal Merit <div style="text-align: right"> *2017* </div>
+- California State Seal of Biliteracy <div style="text-align: right"> *2017* </div>
 
+Downloadable version [here](resume.pdf)
 
-
+<br>
+<center>
 
 Click here to return to the [main](index.html) page.
