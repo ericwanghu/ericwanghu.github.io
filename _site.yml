@@ -7,6 +7,8 @@ navbar:
       href: about.html
     - text: 'Connect'
       href: connect.html
+    - text: 'Plotly'
+      href: plotly.html
     - text: 'Dashboard'
       href: dashboard.html
   right:

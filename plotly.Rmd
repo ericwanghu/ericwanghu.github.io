@@ -1,0 +1,101 @@
+---
+title: "Plotly"
+author: "Eric Wang"
+output: html_document
+---
+
+## NYC Restaurant Inspection Project Results
+
+*Context*
+
+The New York City Department of Health and Mental Hygiene (DOHMH) conducts unannounced rest_inspecaurant inspections on an annual basis in order to check for compliance with policies on food handling, food temperature, personal hygiene of rest_inspecaurant workers, and vermin control. Regulation violations are each worth a pre-specified number of points, which are totaled at the end of the inspection. Scores are converted into grades, where a lower score earns a higher grade.
+
+Each violation falls into one of three categories:
+
+1. A public health hazard, such as failing to store food at an appropriate temperature, results in a minimum score of 7
+
+2. A critical violation, such as improperly washing raw vegetables prior to serving, results in a minimum score of 5
+
+3. A general violation, such as improperly sanitizing cookware, results in a minimum score of 2
+
+Additional points can then be assigned based on the severity of the violation, ranging from 1-5, at the discretion of the inspector.
+
+```{r setup, echo = FALSE, message = FALSE}
+
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+library(lubridate)
+library(viridis)
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = .6,
+  out.width = "90%"
+)
+theme_set(theme_bw() + theme(legend.position = "bottom"))
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+
+```
+
+```{r load data}
+
+data("rest_inspec")
+
+```
+
+### Bar Chart
+
+```{r}
+
+rest_inspec %>%
+  select(boro, score) %>%
+  group_by(boro) %>%
+  summarise(
+    avg_score = mean(score, na.rm = TRUE)) %>%
+  mutate(
+    boro = fct_reorder(boro, avg_score)) %>%
+  plot_ly(
+    x = ~avg_score, 
+    y = ~boro, 
+    color = ~boro, 
+    colors = "viridis",
+    type = "bar") %>% 
+  layout(
+    title = "Average Scores per Borough",
+    xaxis = list(title = "Average Score",
+    yaxis = list(title = "Borough"))
+  )
+
+```
+
+### 
+
+```{r}
+
+rest_inspec %>%
+  select(boro, cuisine_description) %>%
+  filter(boro == "MANHATTAN") %>%
+  count(cuisine_description) %>%
+  mutate(cuisine_description = replace(cuisine_description,
+                                       cuisine_description == "Latin (Cuban, Dominican, Puerto Rican, South & Central American)", "Latin"),
+    cuisine_description = fct_reorder(cuisine_description, -n)) %>%
+  top_n(15) %>%
+  plot_ly(x = ~cuisine_description, 
+          y = ~n, 
+          color = ~cuisine_description,
+          type = "bar", 
+          colors = "viridis") %>%
+  layout(
+    xaxis = list(title = "rest_inspecaurant Type"), 
+    yaxis = list(title = 'Count'), 
+    showlegend = FALSE)
+
+```
+

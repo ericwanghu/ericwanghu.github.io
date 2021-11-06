@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Eric Wang" />
+
+
+<title>Plotly</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="about.html">About Me</a>
+</li>
+<li>
+  <a href="connect.html">Connect</a>
+</li>
+<li>
+  <a href="plotly.html">Plotly</a>
+</li>
+<li>
+  <a href="dashboard.html">Dashboard</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="resume.html">
+    <span class="fa fa-file fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="mailto:&lt;wang.eric@columbia.com&gt;">
+    <span class="fa fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/ericwanggg/">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://github.com/ericwanghu/">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Plotly</h1>
+<h4 class="author">Eric Wang</h4>
+
+</div>
+
+
+<div id="nyc-restaurant-inspection-project-results" class="section level2">
+<h2>NYC Restaurant Inspection Project Results</h2>
+<p><em>Context</em></p>
+<p>The New York City Department of Health and Mental Hygiene (DOHMH) conducts unannounced rest_inspecaurant inspections on an annual basis in order to check for compliance with policies on food handling, food temperature, personal hygiene of rest_inspecaurant workers, and vermin control. Regulation violations are each worth a pre-specified number of points, which are totaled at the end of the inspection. Scores are converted into grades, where a lower score earns a higher grade.</p>
+<p>Each violation falls into one of three categories:</p>
+<ol style="list-style-type: decimal">
+<li><p>A public health hazard, such as failing to store food at an appropriate temperature, results in a minimum score of 7</p></li>
+<li><p>A critical violation, such as improperly washing raw vegetables prior to serving, results in a minimum score of 5</p></li>
+<li><p>A general violation, such as improperly sanitizing cookware, results in a minimum score of 2</p></li>
+</ol>
+<p>Additional points can then be assigned based on the severity of the violation, ranging from 1-5, at the discretion of the inspector.</p>
+<pre class="r"><code>data(&quot;rest_inspec&quot;)</code></pre>
+<div id="bar-chart" class="section level3">
+<h3>Bar Chart</h3>
+<pre class="r"><code>rest_inspec %&gt;%
+  select(boro, score) %&gt;%
+  group_by(boro) %&gt;%
+  summarise(avg_score = mean(score, na.rm = TRUE)) %&gt;%
+  mutate(boro = fct_reorder(boro, avg_score)) %&gt;%
+  plot_ly(x = ~avg_score, 
+          y = ~boro, 
+          color = ~boro, 
+          colors = &quot;viridis&quot;,
+          type = &quot;bar&quot;) %&gt;% 
+  layout(
+    title = &quot;Average Scores per Borough&quot;,
+    xaxis = list(title = &quot;Average Score&quot;,
+    yaxis = list(title = &quot;Borough&quot;))
+  )</code></pre>
+<div id="htmlwidget-8013242bc34d46b49d42" style="width:90%;height:345.6px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8013242bc34d46b49d42">{"x":{"visdat":{"241010243ec9":["function () ","plotlyVisDat"]},"cur_data":"241010243ec9","attrs":{"241010243ec9":{"x":{},"y":{},"color":{},"colors":"viridis","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Average Scores per Borough","xaxis":{"domain":[0,1],"automargin":true,"title":"Average Score","yaxis":{"title":"Borough"}},"yaxis":{"domain":[0,1],"automargin":true,"title":"boro","type":"category","categoryorder":"array","categoryarray":["Missing","BRONX","QUEENS","MANHATTAN","BROOKLYN","STATEN ISLAND"]},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[17.2727272727273],"y":["Missing"],"type":"bar","orientation":"h","name":"Missing","marker":{"color":"rgba(68,1,84,1)","line":{"color":"rgba(68,1,84,1)"}},"textfont":{"color":"rgba(68,1,84,1)"},"error_y":{"color":"rgba(68,1,84,1)"},"error_x":{"color":"rgba(68,1,84,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[18.1926137399016],"y":["BRONX"],"type":"bar","orientation":"h","name":"BRONX","marker":{"color":"rgba(65,68,135,1)","line":{"color":"rgba(65,68,135,1)"}},"textfont":{"color":"rgba(65,68,135,1)"},"error_y":{"color":"rgba(65,68,135,1)"},"error_x":{"color":"rgba(65,68,135,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[18.6112980547617],"y":["QUEENS"],"type":"bar","orientation":"h","name":"QUEENS","marker":{"color":"rgba(42,120,142,1)","line":{"color":"rgba(42,120,142,1)"}},"textfont":{"color":"rgba(42,120,142,1)"},"error_y":{"color":"rgba(42,120,142,1)"},"error_x":{"color":"rgba(42,120,142,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[19.0135947098117],"y":["MANHATTAN"],"type":"bar","orientation":"h","name":"MANHATTAN","marker":{"color":"rgba(34,168,132,1)","line":{"color":"rgba(34,168,132,1)"}},"textfont":{"color":"rgba(34,168,132,1)"},"error_y":{"color":"rgba(34,168,132,1)"},"error_x":{"color":"rgba(34,168,132,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[19.2866828242278],"y":["BROOKLYN"],"type":"bar","orientation":"h","name":"BROOKLYN","marker":{"color":"rgba(122,209,81,1)","line":{"color":"rgba(122,209,81,1)"}},"textfont":{"color":"rgba(122,209,81,1)"},"error_y":{"color":"rgba(122,209,81,1)"},"error_x":{"color":"rgba(122,209,81,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[19.4874336002537],"y":["STATEN ISLAND"],"type":"bar","orientation":"h","name":"STATEN ISLAND","marker":{"color":"rgba(253,231,37,1)","line":{"color":"rgba(253,231,37,1)"}},"textfont":{"color":"rgba(253,231,37,1)"},"error_y":{"color":"rgba(253,231,37,1)"},"error_x":{"color":"rgba(253,231,37,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="what-types-of-rest_inspecaurants-are-most-common-in-manhattan" class="section level3">
+<h3>What types of rest_inspecaurants are most common in Manhattan?</h3>
+<pre class="r"><code>rest_inspec %&gt;%
+  select(boro, cuisine_description) %&gt;%
+  filter(boro == &quot;MANHATTAN&quot;) %&gt;%
+  count(cuisine_description) %&gt;%
+  mutate(cuisine_description = replace(cuisine_description,
+                                       cuisine_description == &quot;Latin (Cuban, Dominican, Puerto Rican, South &amp; Central American)&quot;, &quot;Latin&quot;),
+    cuisine_description = fct_reorder(cuisine_description, -n)) %&gt;%
+  top_n(15) %&gt;%
+  plot_ly(x = ~cuisine_description, 
+          y = ~n, 
+          color = ~cuisine_description,
+          type = &quot;bar&quot;, 
+          colors = &quot;viridis&quot;) %&gt;%
+  layout(xaxis = list(title = &quot;rest_inspecaurant Type&quot;), yaxis = list(title = &#39;Count&#39;), showlegend = FALSE)</code></pre>
+<pre><code>## Selecting by n</code></pre>
+<div id="htmlwidget-bbb5043e3478aceb358b" style="width:90%;height:345.6px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bbb5043e3478aceb358b">{"x":{"visdat":{"24102caf3930":["function () ","plotlyVisDat"]},"cur_data":"24102caf3930","attrs":{"24102caf3930":{"x":{},"y":{},"color":{},"colors":"viridis","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"rest_inspecaurant Type","type":"category","categoryorder":"array","categoryarray":["American","Chinese","Italian","Japanese","CafÃ©/Coffee/Tea","Pizza","Mexican","Latin","French","Bakery","Asian","Delicatessen","Thai","Indian","Spanish","Pizza/Italian","Irish","Sandwiches","Mediterranean","Hamburgers","Korean","Sandwiches/Salads/Mixed Buffet","Donuts","Juice, Smoothies, Fruit Salads","Chicken","Seafood","Jewish/Kosher","Bagels/Pretzels","Ice Cream, Gelato, Yogurt, Ices","Vegetarian","Tex-Mex","Middle Eastern","Steak","Other","Greek","Vietnamese/Cambodian/Malaysia","Caribbean","Turkish","Salads","African","Chinese/Japanese","Soups & Sandwiches","Barbecue","Tapas","Soul Food","Bottled beverages, including water, sodas, juices, etc.","Continental","Eastern European","German","Peruvian","Moroccan","Brazilian","Russian","Ethiopian","Armenian","English","Chinese/Cuban","Australian","Bangladeshi","Hotdogs","Pakistani","Hawaiian","Filipino","Hotdogs/Pretzels","Polish","Scandinavian","Afghan","Egyptian","Indonesian","Portuguese","Southwestern","Iranian","Polynesian","Pancakes/Waffles","Nuts/Confectionary","Chilean","Fruits/Vegetables","Soups","Creole","Californian","Not Listed/Not Applicable","Basque"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Count"},"showlegend":false,"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["American"],"y":[46462],"type":"bar","name":"American","marker":{"color":"rgba(68,1,84,1)","line":{"color":"rgba(68,1,84,1)"}},"textfont":{"color":"rgba(68,1,84,1)"},"error_y":{"color":"rgba(68,1,84,1)"},"error_x":{"color":"rgba(68,1,84,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Chinese"],"y":[10893],"type":"bar","name":"Chinese","marker":{"color":"rgba(69,5,89,1)","line":{"color":"rgba(69,5,89,1)"}},"textfont":{"color":"rgba(69,5,89,1)"},"error_y":{"color":"rgba(69,5,89,1)"},"error_x":{"color":"rgba(69,5,89,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Italian"],"y":[10274],"type":"bar","name":"Italian","marker":{"color":"rgba(70,10,93,1)","line":{"color":"rgba(70,10,93,1)"}},"textfont":{"color":"rgba(70,10,93,1)"},"error_y":{"color":"rgba(70,10,93,1)"},"error_x":{"color":"rgba(70,10,93,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Japanese"],"y":[8324],"type":"bar","name":"Japanese","marker":{"color":"rgba(71,15,98,1)","line":{"color":"rgba(71,15,98,1)"}},"textfont":{"color":"rgba(71,15,98,1)"},"error_y":{"color":"rgba(71,15,98,1)"},"error_x":{"color":"rgba(71,15,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["CafÃ©/Coffee/Tea"],"y":[8259],"type":"bar","name":"CafÃ©/Coffee/Tea","marker":{"color":"rgba(72,20,102,1)","line":{"color":"rgba(72,20,102,1)"}},"textfont":{"color":"rgba(72,20,102,1)"},"error_y":{"color":"rgba(72,20,102,1)"},"error_x":{"color":"rgba(72,20,102,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Pizza"],"y":[5460],"type":"bar","name":"Pizza","marker":{"color":"rgba(72,24,106,1)","line":{"color":"rgba(72,24,106,1)"}},"textfont":{"color":"rgba(72,24,106,1)"},"error_y":{"color":"rgba(72,24,106,1)"},"error_x":{"color":"rgba(72,24,106,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Mexican"],"y":[5138],"type":"bar","name":"Mexican","marker":{"color":"rgba(72,28,110,1)","line":{"color":"rgba(72,28,110,1)"}},"textfont":{"color":"rgba(72,28,110,1)"},"error_y":{"color":"rgba(72,28,110,1)"},"error_x":{"color":"rgba(72,28,110,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Latin"],"y":[4177],"type":"bar","name":"Latin","marker":{"color":"rgba(72,32,113,1)","line":{"color":"rgba(72,32,113,1)"}},"textfont":{"color":"rgba(72,32,113,1)"},"error_y":{"color":"rgba(72,32,113,1)"},"error_x":{"color":"rgba(72,32,113,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["French"],"y":[4157],"type":"bar","name":"French","marker":{"color":"rgba(72,36,117,1)","line":{"color":"rgba(72,36,117,1)"}},"textfont":{"color":"rgba(72,36,117,1)"},"error_y":{"color":"rgba(72,36,117,1)"},"error_x":{"color":"rgba(72,36,117,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Bakery"],"y":[3441],"type":"bar","name":"Bakery","marker":{"color":"rgba(72,40,120,1)","line":{"color":"rgba(72,40,120,1)"}},"textfont":{"color":"rgba(72,40,120,1)"},"error_y":{"color":"rgba(72,40,120,1)"},"error_x":{"color":"rgba(72,40,120,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Asian"],"y":[2907],"type":"bar","name":"Asian","marker":{"color":"rgba(71,44,122,1)","line":{"color":"rgba(71,44,122,1)"}},"textfont":{"color":"rgba(71,44,122,1)"},"error_y":{"color":"rgba(71,44,122,1)"},"error_x":{"color":"rgba(71,44,122,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Delicatessen"],"y":[2876],"type":"bar","name":"Delicatessen","marker":{"color":"rgba(70,48,126,1)","line":{"color":"rgba(70,48,126,1)"}},"textfont":{"color":"rgba(70,48,126,1)"},"error_y":{"color":"rgba(70,48,126,1)"},"error_x":{"color":"rgba(70,48,126,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Thai"],"y":[2873],"type":"bar","name":"Thai","marker":{"color":"rgba(70,52,128,1)","line":{"color":"rgba(70,52,128,1)"}},"textfont":{"color":"rgba(70,52,128,1)"},"error_y":{"color":"rgba(70,52,128,1)"},"error_x":{"color":"rgba(70,52,128,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Indian"],"y":[2850],"type":"bar","name":"Indian","marker":{"color":"rgba(69,56,130,1)","line":{"color":"rgba(69,56,130,1)"}},"textfont":{"color":"rgba(69,56,130,1)"},"error_y":{"color":"rgba(69,56,130,1)"},"error_x":{"color":"rgba(69,56,130,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Spanish"],"y":[2413],"type":"bar","name":"Spanish","marker":{"color":"rgba(68,59,132,1)","line":{"color":"rgba(68,59,132,1)"}},"textfont":{"color":"rgba(68,59,132,1)"},"error_y":{"color":"rgba(68,59,132,1)"},"error_x":{"color":"rgba(68,59,132,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="is-there-any-trend-between-time-of-year-inspection-was-performed-and-inspection-score" class="section level1">
+<h1>Is there any trend between time of year inspection was performed and inspection score?</h1>
+<pre class="r"><code>rest_inspec %&gt;%
+  mutate(inspection_date = as.Date(inspection_date)) %&gt;%
+  mutate(month = month(inspection_date)) %&gt;%
+  mutate(month = replace(month, month == &quot;1&quot;, &quot;January&quot;),
+         month = replace(month, month == &quot;2&quot;, &quot;February&quot;),
+         month = replace(month, month == &quot;3&quot;, &quot;March&quot;),
+         month = replace(month, month == &quot;4&quot;, &quot;April&quot;),
+         month = replace(month, month == &quot;5&quot;, &quot;May&quot;),
+         month = replace(month, month == &quot;6&quot;, &quot;June&quot;),
+         month = replace(month, month == &quot;7&quot;, &quot;July&quot;),
+         month = replace(month, month == &quot;8&quot;, &quot;August&quot;),
+         month = replace(month, month == &quot;9&quot;, &quot;September&quot;),
+         month = replace(month, month == &quot;10&quot;, &quot;October&quot;),
+         month = replace(month, month == &quot;11&quot;, &quot;November&quot;),
+         month = replace(month, month == &quot;12&quot;, &quot;December&quot;), 
+         month = factor(month, levels = c(&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;, &quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;))) %&gt;%
+  group_by(month) %&gt;%
+  summarise(avg_score = mean(score, na.rm = TRUE)) %&gt;%
+  select(month, avg_score) %&gt;%
+  plot_ly(x = ~month, y = ~avg_score, type = &quot;scatter&quot;, colors = &quot;viridis&quot;) %&gt;%
+  add_trace(y = ~avg_score, mode = &#39;lines&#39;, color = &quot;viridis&quot;) %&gt;%
+  layout(xaxis = list(title = &quot;Month&quot;), yaxis = list(title = &#39;Average Inspection Score&#39;), showlegend = FALSE)</code></pre>
+<pre><code>## No scatter mode specifed:
+##   Setting the mode to markers
+##   Read more about this attribute -&gt; https://plotly.com/r/reference/#scatter-mode</code></pre>
+<div id="htmlwidget-7766aa083dc3c28d2c51" style="width:90%;height:345.6px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7766aa083dc3c28d2c51">{"x":{"visdat":{"241041805bf2":["function () ","plotlyVisDat"]},"cur_data":"241041805bf2","attrs":{"241041805bf2":{"x":{},"y":{},"colors":"viridis","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"241041805bf2.1":{"x":{},"y":{},"colors":"viridis","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","mode":"lines","color":"viridis","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Month","type":"category","categoryorder":"array","categoryarray":["January","February","March","April","May","June","July","August","September","October","November","December"]},"yaxis":{"domain":[0,1],"automargin":true,"title":"Average Inspection Score"},"showlegend":false,"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["January","February","March","April","May","June","July","August","September","October","November","December"],"y":[16.7044911703669,17.2914151340727,17.3948145717099,18.0749977679236,18.2323439717383,18.894749241688,20.7552337021386,21.1387273901809,21.2224039693574,20.0823722736779,18.1554573061808,17.5845663118251],"type":"scatter","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["January","February","March","April","May","June","July","August","September","October","November","December"],"y":[16.7044911703669,17.2914151340727,17.3948145717099,18.0749977679236,18.2323439717383,18.894749241688,20.7552337021386,21.1387273901809,21.2224039693574,20.0823722736779,18.1554573061808,17.5845663118251],"type":"scatter","mode":"lines","name":"viridis","marker":{"color":"rgba(33,144,141,1)","line":{"color":"rgba(33,144,141,1)"}},"textfont":{"color":"rgba(33,144,141,1)"},"error_y":{"color":"rgba(33,144,141,1)"},"error_x":{"color":"rgba(33,144,141,1)"},"line":{"color":"rgba(33,144,141,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Summer months tend to have higher average inspection scores. It’s possible that people are happier/more positive in the summer and tend to score rest_inspecaurants more positively also.</p>
+<div id="another" class="section level2">
+<h2>Another</h2>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
