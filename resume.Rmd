@@ -67,7 +67,7 @@ UC San Diego <div style="text-align: right"> *Mar 2020 - Jun 2021* </div>
 - Analyzed resulting data using Excel to present findings and recommendations through presentations and policy briefs
 
 **Data Analyst Intern**
-The University of Tokyo <div style="text-align: right"> *Oct 2019 - Dec 2019* </div> Oct 2019 - Dec 2019
+The University of Tokyo <div style="text-align: right"> *Oct 2019 - Dec 2019* </div>
 
 - Collected and analyzed network metadata using SPSS andstatistical methods such as ANOVA and Friedman test
 - Monitored health IoT and security monitoring data to reveal problem areas and identify focus points
