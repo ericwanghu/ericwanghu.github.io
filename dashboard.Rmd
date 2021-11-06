@@ -1,4 +1,22 @@
 ---
-title: "dashboard"
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source_code: embed 
 ---
+
+#### NYC Inspections
+
+```{r setup, include=FALSE}
+
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+library(flexdashboard)
+
+```
+
+
 
