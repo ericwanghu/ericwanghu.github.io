@@ -18,4 +18,8 @@ What do you want to check out?
 
 [My resume](resume.html)
 
+[My projects](plotly.html)
+
+[The dashboard](dashboard.html)
+
 [Connect with me](connect.html)
