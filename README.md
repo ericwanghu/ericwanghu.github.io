@@ -2,4 +2,4 @@
 
 Eric Wang's Personal Website
 
-https://ericwanghu.github.io/
+ericwanghu.github.io
