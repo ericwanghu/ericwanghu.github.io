@@ -14,12 +14,12 @@ My name is Eric Wang and this is my personal website.
 
 What do you want to check out?
 
-[More about me](about.html)
+[about me](about.html)
 
-[My resume](resume.html)
+[resume](resume.html)
 
-[My projects](plotly.html)
+[projects](plotly.html)
 
-[The dashboard](dashboard.html)
+[dashboard](dashboard.html)
 
-[Connect with me](connect.html)
+[social media](connect.html)
