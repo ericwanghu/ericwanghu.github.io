@@ -12,7 +12,7 @@ My name is Eric Wang and this is my personal website.
 <img src="images/pfp.jpeg" style="width:75%">
 
 
-What do you want to check out?
+What do you want to check out next?
 
 [about me](about.html)
 
