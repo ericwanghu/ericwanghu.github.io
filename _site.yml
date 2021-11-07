@@ -1,7 +1,7 @@
 name: "Yay internet!"
 output_dir: "."
 navbar:
-  title: "Home"
+  title: "Eric Wang"
   left:
     - text: "About Me"
       href: about.html

@@ -6,25 +6,39 @@ output:
     vertical_layout: fill
 ---
 
-```{r setup, include=FALSE}
+```{r setup, message = FALSE, echo = FALSE}
 
 library(flexdashboard)
 library(tidyverse)
 library(p8105.datasets)
 library(plotly)
+library(ggplot2)
 
 ```
 
-```{r}
+```{r import data, message = FALSE, echo = FALSE}
 
-data("rest_inspec")
+data("ny_noaa") 
 
 ```
 
+```{r tidy data, message = FALSE}
 
-```{r}
+set.seed(8) 
 
-
+ny_noaa <-
+  ny_noaa %>%
+  sample_n(99999) %>%
+  janitor::clean_names() %>% 
+  drop_na() %>% 
+  separate(col = date, 
+           into = c("year","month", "day")) %>%
+  mutate(across(.cols
+                = c(year, month, day), as.integer)) %>%
+  mutate(month = month.name[month]) %>%
+  mutate(prcp = prcp/10, 
+         tmax = as.integer(tmax)/10,
+         tmin = as.integer(tmin)/10)
 
 ```
 
@@ -35,7 +49,24 @@ Column {data-width=650}
 
 ```{r}
 
+ny_noaa %>%
+  drop_na(tmin, tmax) %>%
+  filter(year == 2010) %>%
+  mutate(text_label = str_c("Max Temperature: ", tmax, 
+                            ", Min Temperature: ", tmin, 
+                            ", Date: ", month," ", day,", ", year)) %>%
+  plot_ly(x = ~ tmin, 
+          y = ~ tmax,
+          alpha = 0.6,
+          color = ~ month,
+          colors = "inferno", 
+          text = ~ text_label) %>%
+  layout(title = 
+           "Minimum Temperature versus Maximum Temperature (2010)",
+         xaxis = list(title = "Minimum temperature in Celcius"),
+         yaxis = list(title = "Maximum temperature in Celcius"))
 
+```
 
 ```
 
@@ -46,7 +77,22 @@ Column {data-width=350}
 
 ```{r}
 
-
+ny_noaa %>%
+  mutate(month = 
+           fct_reorder(month, tmin)) %>%
+  group_by(year, month, id) %>%
+  summarize(mean_tmin = mean(tmin)) %>%
+  plot_ly(x = ~ month, 
+          y = ~ factor(mean_tmin), 
+          color = ~ month, 
+          alpha = 0.6,
+          type = "box",
+          colors = "inferno") %>%
+  layout(
+    title = 
+      "Average Minimum Temperature per Month", 
+    xaxis = list(title = "Month"),
+    yaxis = list(title = "Mean Minimum Temperature in Celcius"))
 
 ```
 

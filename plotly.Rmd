@@ -1,77 +1,114 @@
 ---
 title: "Plotly"
-author: "Eric Wang"
 output: html_document
 ---
 
-## NYC Restaurant Inspection Project Results
-
-*Context*
-
-The New York City Department of Health and Mental Hygiene (DOHMH) conducts unannounced rest_inspecaurant inspections on an annual basis in order to check for compliance with policies on food handling, food temperature, personal hygiene of rest_inspecaurant workers, and vermin control. Regulation violations are each worth a pre-specified number of points, which are totaled at the end of the inspection. Scores are converted into grades, where a lower score earns a higher grade.
-
-Each violation falls into one of three categories:
-
-1. A public health hazard, such as failing to store food at an appropriate temperature, results in a minimum score of 7
-
-2. A critical violation, such as improperly washing raw vegetables prior to serving, results in a minimum score of 5
-
-3. A general violation, such as improperly sanitizing cookware, results in a minimum score of 2
-
-Additional points can then be assigned based on the severity of the violation, ranging from 1-5, at the discretion of the inspector.
-
-```{r setup, echo = FALSE, message = FALSE}
+```{r setup, message = FALSE, echo = FALSE}
 
 library(tidyverse)
-library(plotly)
 library(p8105.datasets)
-library(lubridate)
-library(viridis)
-
-knitr::opts_chunk$set(
-  fig.width = 6,
-  fig.asp = .6,
-  out.width = "90%"
-)
-theme_set(theme_bw() + theme(legend.position = "bottom"))
-options(
-  ggplot2.continuous.colour = "viridis",
-  ggplot2.continuous.fill = "viridis"
-)
-
-scale_colour_discrete = scale_colour_viridis_d
-scale_fill_discrete = scale_fill_viridis_d
+library(plotly)
+library(ggplot2)
 
 ```
 
-```{r load data}
+```{r import data, message = FALSE, echo = FALSE}
 
-data("rest_inspec")
+data("ny_noaa") 
 
 ```
 
-### Bar Chart
+```{r tidy data, message = FALSE}
+
+set.seed(8) 
+
+ny_noaa <-
+  ny_noaa %>%
+  sample_n(99999) %>%
+  janitor::clean_names() %>% 
+  drop_na() %>% 
+  separate(col = date, 
+           into = c("year","month", "day")) %>%
+  mutate(across(.cols
+                = c(year, month, day), as.integer)) %>%
+  mutate(month = month.name[month]) %>%
+  mutate(prcp = prcp/10, 
+         tmax = as.integer(tmax)/10,
+         tmin = as.integer(tmin)/10,
+         #tmin_rounded = round(tmin, digits = 1))
+
+```
+
+
+### Bar Graph
 
 ```{r}
 
-rest_inspec %>%
-  select(boro, score) %>%
-  group_by(boro) %>%
-  summarise(
-    avg_score = mean(score, na.rm = TRUE)) %>%
-  mutate(
-    boro = fct_reorder(boro, avg_score)) %>%
-  plot_ly(
-    x = ~avg_score, 
-    y = ~boro, 
-    color = ~boro, 
-    colors = "viridis",
-    type = "bar") %>% 
+ny_noaa %>%
+  select(snow, date) %>%
+  group_by(date) %>%
+  summarise(mean = mean(snow)) %>%
+  mutate(date = fct_reorder(date, snow)) %>%
+  plot_ly(x = ~date, 
+          y = ~snow, 
+          type = "bar", 
+          colors = "inferno") %>%
   layout(
-    title = "Average Scores per Borough",
-    xaxis = list(title = "Average Score",
-    yaxis = list(title = "Borough"))
-  )
+    title = 
+      "Average Snowfall per Month", 
+    xaxis = list(title = "Month"),
+    yaxis = list(title = "Snowfall in mm")) 
 
 ```
 
+### Scatterplot
+
+```{r scatter plot, message = FALSE}
+
+ny_noaa %>%
+  drop_na(tmin, tmax) %>%
+  filter(year == 2010) %>%
+  mutate(text_label = str_c("Max Temperature: ", tmax, 
+                            ", Min Temperature: ", tmin, 
+                            ", Date: ", month," ", day,", ", year)) %>%
+  plot_ly(x = ~ tmin, 
+          y = ~ tmax,
+          alpha = 0.6,
+          color = ~ month,
+          colors = "inferno", 
+          text = ~ text_label) %>%
+  layout(title = 
+           "Minimum Temperature versus Maximum Temperature (2010)",
+         xaxis = list(title = "Minimum temperature in Celcius"),
+         yaxis = list(title = "Maximum temperature in Celcius"))
+
+```
+
+
+### Boxplot
+
+```{r message = FALSE}
+
+ny_noaa %>%
+  mutate(month = 
+           fct_reorder(month, tmin)) %>%
+  group_by(year, month, id) %>%
+  summarize(mean_tmin = mean(tmin)) %>%
+  plot_ly(x = ~ month, 
+          y = ~ factor(mean_tmin), 
+          color = ~ month, 
+          alpha = 0.6,
+          type = "box",
+          colors = "inferno") %>%
+  layout(
+    title = 
+      "Average Minimum Temperature per Month", 
+    xaxis = list(title = "Month"),
+    yaxis = list(title = "Mean Minimum Temperature in Celcius")) 
+
+```
+
+<br>
+<center>
+
+Click here to return to the [main](index.html) page.
