@@ -12,7 +12,6 @@ library(flexdashboard)
 library(tidyverse)
 library(p8105.datasets)
 library(plotly)
-library(ggplot2)
 
 ```
 

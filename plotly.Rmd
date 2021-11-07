@@ -19,7 +19,6 @@ These data were accessed from the NOAA National Climatic Data Center, http://doi
 library(tidyverse)
 library(p8105.datasets)
 library(plotly)
-library(ggplot2)
 
 ```
 
@@ -106,8 +105,7 @@ ny_noaa %>%
           color = ~ month,
           colors = "inferno", 
           text = ~ text_label) %>%
-  layout(title = 
-           "Minimum Temperature versus Maximum Temperature (2010)",
+  layout(title = "Minimum Temperature versus Maximum Temperature (2010)",
          xaxis = list(title = "Minimum temperature (Celcius)"),
          yaxis = list(title = "Maximum temperature (Celcius)"))
 
