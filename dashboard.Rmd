@@ -84,7 +84,7 @@ ny_noaa %>%
           color = "inferno") %>%
   layout(
     title = 
-      "Snow Depth Count", 
+      "Snow Depth Count (Snow Days Only)", 
     xaxis = list(title = "Snow Depth (mm)"),
     yaxis = list(title = "Count (n)"))
 

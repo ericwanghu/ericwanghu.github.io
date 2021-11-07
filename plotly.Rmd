@@ -68,7 +68,7 @@ ny_noaa %>%
     title = 
       "Average Minimum Temperature per Month", 
     xaxis = list(title = "Month"),
-    yaxis = list(title = "Mean Minimum Temperature in Celcius")) 
+    yaxis = list(title = "Mean Minimum Temperature (Celcius)")) 
 
 ```
 
@@ -78,15 +78,16 @@ ny_noaa %>%
 
 ny_noaa %>%
   count(snwd) %>% 
+  filter(snwd > 0) %>% 
   plot_ly(x = ~ snwd, 
           y = ~ n, 
           type = "bar", 
-          colors = "inferno") %>%
+          color = "inferno") %>%
   layout(
     title = 
-      "Snow Depth", 
-    xaxis = list(title = "Snow Depth in mm"),
-    yaxis = list(title = "Count"))
+      "Snow Depth Count (Snow Days Only)", 
+    xaxis = list(title = "Snow Depth (mm)"),
+    yaxis = list(title = "Count (n)"))
 
 ```
 
@@ -95,7 +96,6 @@ ny_noaa %>%
 ```{r scatter plot, message = FALSE}
 
 ny_noaa %>%
-  drop_na(tmin, tmax) %>%
   filter(year == 2010) %>%
   mutate(text_label = str_c("Max Temperature: ", tmax, 
                             ", Min Temperature: ", tmin, 
@@ -108,8 +108,8 @@ ny_noaa %>%
           text = ~ text_label) %>%
   layout(title = 
            "Minimum Temperature versus Maximum Temperature (2010)",
-         xaxis = list(title = "Minimum temperature in Celcius"),
-         yaxis = list(title = "Maximum temperature in Celcius"))
+         xaxis = list(title = "Minimum temperature (Celcius)"),
+         yaxis = list(title = "Maximum temperature (Celcius)"))
 
 ```
 
