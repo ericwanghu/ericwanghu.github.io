@@ -79,6 +79,12 @@ UC San Diego <div style="text-align: right"> *Jun 2019 - Aug 2019* </div>
 - Assisted PhD research on cell signaling pathways through conducting weekly experiments and summarized weekly findings via project reports
 - Performed PCRs, gel electrophoresis, Gibson assembly, and imaging daily to support research findings
 
+### Skills
+
+- **Tech:** R Code, SPSS, MAXQDA, MATLAB, Qualtrics, Epi Info, Microsoft Office
+
+- **Languages:** English (Fluent), Chinese (Fluent), Japanese (Intermediate)
+
 ### Achievements
 
 - Honors with Highest Distinction <div style="text-align: right"> *2021* </div>
