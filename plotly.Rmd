@@ -3,6 +3,12 @@ title: "Plotly"
 output: html_document
 ---
 
+## NOAA Project Plots
+
+These data were accessed from the NOAA National Climatic Data Center, http://doi.org/10.7289/V5D21VHZ, on August 15, 2017.(Menne, M.J., I. Durre, B. Korzeniewski, S. McNeal, K. Thomas, X. Yin, S. Anthony, R. Ray, R.S. Vose, B.E.Gleason, and T.G. Houston, 2012: Global Historical Climatology Network - Daily (GHCN-Daily), Version 3.22.)
+
+The National Oceanic and Atmospheric Association (NOAA) of the National Centers for Environmental Information (NCEI) provides public access to some weather data, including the GHCN (Global Historical Climatology Network)-Daily database of summary statistics from weather stations around the world. 
+
 ```{r setup, message = FALSE, echo = FALSE}
 
 library(tidyverse)
@@ -32,32 +38,50 @@ ny_noaa <-
   mutate(across(.cols
                 = c(year, month, day), as.integer)) %>%
   mutate(month = month.name[month]) %>%
-  mutate(prcp = prcp/10, 
+  mutate(snow = as.numeric(snow),
          tmax = as.integer(tmax)/10,
-         tmin = as.integer(tmin)/10,
-         #tmin_rounded = round(tmin, digits = 1))
+         tmin = as.integer(tmin)/10)
 
 ```
 
+### Boxplot
+
+```{r message = FALSE}
+
+ny_noaa %>%
+  mutate(month = 
+           fct_reorder(month, tmin)) %>%
+  group_by(year, month, id) %>%
+  summarize(mean_tmin = mean(tmin)) %>%
+  plot_ly(x = ~ month, 
+          y = ~ round(mean_tmin, digits = 0), 
+          color = ~ month, 
+          alpha = 0.6,
+          type = "box",
+          colors = "inferno") %>%
+  layout(
+    title = 
+      "Average Minimum Temperature per Month", 
+    xaxis = list(title = "Month"),
+    yaxis = list(title = "Mean Minimum Temperature in Celcius")) 
+
+```
 
 ### Bar Graph
 
-```{r}
+```{r warning = FALSE}
 
 ny_noaa %>%
-  select(snow, date) %>%
-  group_by(date) %>%
-  summarise(mean = mean(snow)) %>%
-  mutate(date = fct_reorder(date, snow)) %>%
-  plot_ly(x = ~date, 
-          y = ~snow, 
+  count(snwd) %>% 
+  plot_ly(x = ~ snwd, 
+          y = ~ n, 
           type = "bar", 
           colors = "inferno") %>%
   layout(
     title = 
-      "Average Snowfall per Month", 
-    xaxis = list(title = "Month"),
-    yaxis = list(title = "Snowfall in mm")) 
+      "Snow Depth", 
+    xaxis = list(title = "Snow Depth in mm"),
+    yaxis = list(title = "Count"))
 
 ```
 
@@ -81,30 +105,6 @@ ny_noaa %>%
            "Minimum Temperature versus Maximum Temperature (2010)",
          xaxis = list(title = "Minimum temperature in Celcius"),
          yaxis = list(title = "Maximum temperature in Celcius"))
-
-```
-
-
-### Boxplot
-
-```{r message = FALSE}
-
-ny_noaa %>%
-  mutate(month = 
-           fct_reorder(month, tmin)) %>%
-  group_by(year, month, id) %>%
-  summarize(mean_tmin = mean(tmin)) %>%
-  plot_ly(x = ~ month, 
-          y = ~ factor(mean_tmin), 
-          color = ~ month, 
-          alpha = 0.6,
-          type = "box",
-          colors = "inferno") %>%
-  layout(
-    title = 
-      "Average Minimum Temperature per Month", 
-    xaxis = list(title = "Month"),
-    yaxis = list(title = "Mean Minimum Temperature in Celcius")) 
 
 ```
 

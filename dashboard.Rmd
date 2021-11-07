@@ -45,9 +45,53 @@ ny_noaa <-
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Boxplot
 
-```{r}
+```{r message = FALSE}
+
+ny_noaa %>%
+  mutate(month = 
+           fct_reorder(month, tmin)) %>%
+  group_by(year, month, id) %>%
+  summarize(mean_tmin = mean(tmin)) %>%
+  plot_ly(x = ~ month, 
+          y = ~ round(mean_tmin, digits = 0), 
+          color = ~ month, 
+          alpha = 0.6,
+          type = "box",
+          colors = "inferno") %>%
+  layout(
+    title = 
+      "Average Minimum Temperature per Month", 
+    xaxis = list(title = "Month"),
+    yaxis = list(title = "Mean Minimum Temperature in Celcius")) 
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Bar Graph
+
+```{r warning = FALSE}
+
+ny_noaa %>%
+  count(snwd) %>% 
+  plot_ly(x = ~ snwd, 
+          y = ~ n, 
+          type = "bar", 
+          colors = "inferno") %>%
+  layout(
+    title = 
+      "Snow Depth Count", 
+    xaxis = list(title = "Snow Depth in mm"),
+    yaxis = list(title = "Count"))
+
+```
+
+### Scatterplot
+
+```{r scatter plot, message = FALSE}
 
 ny_noaa %>%
   drop_na(tmin, tmax) %>%
@@ -67,40 +111,3 @@ ny_noaa %>%
          yaxis = list(title = "Maximum temperature in Celcius"))
 
 ```
-
-```
-
-Column {data-width=350}
------------------------------------------------------------------------
-
-### Chart B
-
-```{r}
-
-ny_noaa %>%
-  mutate(month = 
-           fct_reorder(month, tmin)) %>%
-  group_by(year, month, id) %>%
-  summarize(mean_tmin = mean(tmin)) %>%
-  plot_ly(x = ~ month, 
-          y = ~ factor(mean_tmin), 
-          color = ~ month, 
-          alpha = 0.6,
-          type = "box",
-          colors = "inferno") %>%
-  layout(
-    title = 
-      "Average Minimum Temperature per Month", 
-    xaxis = list(title = "Month"),
-    yaxis = list(title = "Mean Minimum Temperature in Celcius"))
-
-```
-
-### Chart C
-
-```{r}
-
-
-
-```
-
