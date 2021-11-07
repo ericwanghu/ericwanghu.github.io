@@ -8,7 +8,7 @@ output:
     toc_float: true
 ---
 
-### NOAA Project
+### Plotly Project - NOAA
 
 The National Oceanic and Atmospheric Association (NOAA) of the National Centers for Environmental Information (NCEI) provides public access to some weather data, including the GHCN (Global Historical Climatology Network)-Daily database of summary statistics from weather stations around the world. 
 

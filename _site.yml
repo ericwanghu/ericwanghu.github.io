@@ -5,9 +5,7 @@ navbar:
   left:
     - text: "About Me"
       href: about.html
-    - text: 'Connect'
-      href: connect.html
-    - text: 'Plotly Project'
+    - text: 'Projects'
       href: plotly.html
     - text: 'Dashboard'
       href: dashboard.html
