@@ -1,5 +1,5 @@
 ---
-title: "plotly"
+title: "projects"
 output: 
   html_document:
     code_folding: hide
@@ -49,7 +49,7 @@ ny_noaa <-
 
 ```
 
-### Box Plot
+#### Box Plot
 
 ```{r message = FALSE}
 
@@ -72,7 +72,7 @@ ny_noaa %>%
 
 ```
 
-### Bar Plot
+#### Bar Plot
 
 ```{r warning = FALSE}
 
@@ -91,7 +91,7 @@ ny_noaa %>%
 
 ```
 
-### Scatter Plot
+#### Scatter Plot
 
 ```{r scatter plot, message = FALSE}
 
