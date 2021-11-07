@@ -1,13 +1,18 @@
 ---
 title: "Plotly"
-output: html_document
+output: 
+  html_document:
+    code_folding: hide
+    toc: true
+    toc_depth: 3
+    toc_float: true
 ---
 
-## NOAA Project Plots
-
-These data were accessed from the NOAA National Climatic Data Center, http://doi.org/10.7289/V5D21VHZ, on August 15, 2017.(Menne, M.J., I. Durre, B. Korzeniewski, S. McNeal, K. Thomas, X. Yin, S. Anthony, R. Ray, R.S. Vose, B.E.Gleason, and T.G. Houston, 2012: Global Historical Climatology Network - Daily (GHCN-Daily), Version 3.22.)
+### NOAA Project Plots
 
 The National Oceanic and Atmospheric Association (NOAA) of the National Centers for Environmental Information (NCEI) provides public access to some weather data, including the GHCN (Global Historical Climatology Network)-Daily database of summary statistics from weather stations around the world. 
+
+These data were accessed from the NOAA National Climatic Data Center, http://doi.org/10.7289/V5D21VHZ (Menne, M.J., I. Durre, B. Korzeniewski, S. McNeal, K. Thomas, X. Yin, S. Anthony, R. Ray, R.S. Vose, B.E.Gleason, and T.G. Houston, 2012: Global Historical Climatology Network - Daily (GHCN-Daily), Version 3.22).
 
 ```{r setup, message = FALSE, echo = FALSE}
 
@@ -44,7 +49,7 @@ ny_noaa <-
 
 ```
 
-### Boxplot
+### Box Plot
 
 ```{r message = FALSE}
 
@@ -67,7 +72,7 @@ ny_noaa %>%
 
 ```
 
-### Bar Graph
+### Bar Plot
 
 ```{r warning = FALSE}
 
@@ -85,7 +90,7 @@ ny_noaa %>%
 
 ```
 
-### Scatterplot
+### Scatter Plot
 
 ```{r scatter plot, message = FALSE}
 
