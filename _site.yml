@@ -7,8 +7,8 @@ navbar:
       href: about.html
     - text: 'Projects'
       href: projects.html
-    - text: 'Project Dashboard'
-      href: dashboard.html
+#    - text: 'Dashboard'
+#      href: dashboard.html
   right:
     - icon: fa-file fa-lg
       href: resume.html
