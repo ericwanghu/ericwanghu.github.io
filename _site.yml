@@ -6,7 +6,7 @@ navbar:
     - text: "About Me"
       href: about.html
     - text: 'Projects'
-      href: plotly.html
+      href: projects.html
     - text: 'Dashboard'
       href: dashboard.html
   right:
