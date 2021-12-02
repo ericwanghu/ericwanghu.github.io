@@ -18,7 +18,7 @@ What do you want to check out next?
 
 [resume](resume.html)
 
-[projects](plotly.html)
+[projects](projects.html)
 
 [dashboard](dashboard.html)
 

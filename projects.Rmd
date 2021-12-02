@@ -1,5 +1,5 @@
 ---
-title: "projects"
+title: "projects & papers"
 output: 
   html_document:
     code_folding: hide
@@ -8,7 +8,27 @@ output:
     toc_float: true
 ---
 
-### Plotly Project - NOAA
+### Associations Between Inflammatory Marker Profiles and Cognitive Functioning Paper
+
+[found here](pdf/associationspaper.pdf).
+
+### Machine-Type Communication for Maritime Internet of Things Paper
+
+[found here](pdf/machinetypecommunication.pdf).
+
+### Impact Evaluation of UC San Diego COVID Response Team Wellness and Job Satisfaction Project
+
+[found here](pdf/impactevaluation.pdf).
+
+### Evaluation of Risk Mitigation Behaviors among San Diegans Project
+
+[found here](pdf/riskmitigation.pdf).
+
+### Safety and Efficacy of the BNT162b2 mRNA Covid-19 Vaccine Project
+
+[found here](pdf/vaccine.pdf).
+
+### National Oceanic and Atmospheric Association Project
 
 The National Oceanic and Atmospheric Association (NOAA) of the National Centers for Environmental Information (NCEI) provides public access to some weather data, including the GHCN (Global Historical Climatology Network)-Daily database of summary statistics from weather stations around the world. 
 
