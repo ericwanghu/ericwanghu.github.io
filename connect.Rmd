@@ -15,7 +15,7 @@
 
 [GitHub](https://github.com/ericwanghu)
 
-<img src="images/columbia.jpg" style="width:75%"> 
+<img src="images/friends.jpg" style="width:75%"> 
 
 
 Click here to return to the [main](index.html) page.
