@@ -28,6 +28,10 @@ output:
 
 [found here](pdf/vaccine.pdf).
 
+### Global Health Expenditure Database Project
+
+[found here](https://ericwanghu.github.io/ghedproject.github.io/)
+
 ### National Oceanic and Atmospheric Association Project
 
 The National Oceanic and Atmospheric Association (NOAA) of the National Centers for Environmental Information (NCEI) provides public access to some weather data, including the GHCN (Global Historical Climatology Network)-Daily database of summary statistics from weather stations around the world. 
