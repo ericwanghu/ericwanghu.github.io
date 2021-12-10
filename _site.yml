@@ -5,7 +5,7 @@ navbar:
   left:
     - text: "About Me"
       href: about.html
-    - text: 'Projects'
+    - text: 'Projects & Papers'
       menu:
       - text: "Associations Between Inflammatory Marker Profiles and Cognitive Functioning Paper"
         href: pdf/associationspaper.pdf
