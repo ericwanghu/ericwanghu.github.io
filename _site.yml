@@ -6,7 +6,21 @@ navbar:
     - text: "About Me"
       href: about.html
     - text: 'Projects'
-      href: projects.html
+      menu:
+      - text: "Associations Between Inflammatory Marker Profiles and Cognitive Functioning Paper"
+        href: pdf/associationspaper.pdf
+      - text: "Machine-Type Communication for Maritime Internet of Things Paper"
+        href: pdf/machinetypecommunication.pdf
+      - text: "Global Health Expenditure Database Project"
+        href: https://ericwanghu.github.io/ghedproject.github.io/
+      - text: "Impact Evaluation of UC San Diego COVID Response Team Wellness and Job Satisfaction Project"
+        href: pdf/impactevaluation.pdf
+      - text: "Evaluation of Risk Mitigation Behaviors among San Diegans Project"
+        href: pdf/riskmitigation.pdf
+      - text: "Safety and Efficacy of the BNT162b2 mRNA Covid-19 Vaccine Project"
+        href: pdf/vaccine.pdf
+      - text: "National Oceanic and Atmospheric Association Project"
+        href: projects.html
 #    - text: 'Dashboard'
 #      href: dashboard.html
   right:

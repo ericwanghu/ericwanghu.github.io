@@ -3,34 +3,7 @@ title: "projects & papers"
 output: 
   html_document:
     code_folding: hide
-    toc: true
-    toc_depth: 3
-    toc_float: true
 ---
-
-### Associations Between Inflammatory Marker Profiles and Cognitive Functioning Paper
-
-[found here](pdf/associationspaper.pdf).
-
-### Machine-Type Communication for Maritime Internet of Things Paper
-
-[found here](pdf/machinetypecommunication.pdf).
-
-### Impact Evaluation of UC San Diego COVID Response Team Wellness and Job Satisfaction Project
-
-[found here](pdf/impactevaluation.pdf).
-
-### Evaluation of Risk Mitigation Behaviors among San Diegans Project
-
-[found here](pdf/riskmitigation.pdf).
-
-### Safety and Efficacy of the BNT162b2 mRNA Covid-19 Vaccine Project
-
-[found here](pdf/vaccine.pdf).
-
-### Global Health Expenditure Database Project
-
-[found here](https://ericwanghu.github.io/ghedproject.github.io/)
 
 ### National Oceanic and Atmospheric Association Project
 
@@ -49,6 +22,7 @@ library(plotly)
 ```{r import data, message = FALSE, echo = FALSE}
 
 data("ny_noaa") 
+# <iframe src=" .pdf" width="100%" height="1000">
 
 ```
 
