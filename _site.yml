@@ -11,16 +11,16 @@ navbar:
         href: pdf/associationspaper.pdf
       - text: "Machine-Type Communication for Maritime Internet of Things Paper"
         href: pdf/machinetypecommunication.pdf
+      - text: "Safety and Efficacy of the BNT162b2 mRNA Covid-19 Vaccine Project"
+        href: pdf/vaccine.pdf
       - text: "Global Health Expenditure Database Project"
         href: https://ericwanghu.github.io/ghedproject.github.io/
+      - text: "National Oceanic and Atmospheric Association Project"
+        href: projects.html
       - text: "Impact Evaluation of UC San Diego COVID Response Team Wellness and Job Satisfaction Project"
         href: pdf/impactevaluation.pdf
       - text: "Evaluation of Risk Mitigation Behaviors among San Diegans Project"
         href: pdf/riskmitigation.pdf
-      - text: "Safety and Efficacy of the BNT162b2 mRNA Covid-19 Vaccine Project"
-        href: pdf/vaccine.pdf
-      - text: "National Oceanic and Atmospheric Association Project"
-        href: projects.html
 #    - text: 'Dashboard'
 #      href: dashboard.html
   right:
