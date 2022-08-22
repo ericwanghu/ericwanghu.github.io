@@ -82,7 +82,7 @@ UC San Diego <div style="text-align: right"> *Jun 2019 - Aug 2019* </div>
 
 ### Skills
 
-- **Tech:** R Code, SPSS, MAXQDA, MATLAB, Qualtrics, Epi Info, Microsoft Office
+- **Tech:** R Code, SAS, SQL, SPSS, MAXQDA, MATLAB, Qualtrics, Epi Info, Excel
 
 - **Languages:** English (Fluent), Chinese (Fluent), Japanese (Intermediate)
 

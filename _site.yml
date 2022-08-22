@@ -21,8 +21,13 @@ navbar:
         href: pdf/impactevaluation.pdf
       - text: "Evaluation of Risk Mitigation Behaviors among San Diegans Project"
         href: pdf/riskmitigation.pdf
+      - text: "Phase III Double-blind, Placebo-controlled BXCL701 Study Proposal"
+        href: pdf/proposal.pdf
+      - text: "Cancer Patient SQL Project"
+        href: sqlproject.html     
 #    - text: 'Dashboard'
 #      href: dashboard.html
+
   right:
     - icon: fa-file fa-lg
       href: resume.html

@@ -1,0 +1,164 @@
+---
+title: "Cancer Patient SQL Project"
+output: 
+  html_document:
+    code_folding: hide
+---
+
+My partner Saryu Patel and I created a database of cancer patients where we stored variables patient ID, cancer type (lookup table), cancer stage, treatment (lookup table), visit, 
+visit date, visit location (New York City/Boston/Baltimore), age (months), tumor size, and weight. In the parent table, we stored the patient ID, cancer type (lookup table), cancer 
+stage, and treatment type (lookup table). In the child table, we stored the visit number, visit date, visit location (New York City/Boston/Baltimore), age (months), tumor 
+size, and weight. We also created lookup tables for cancer type and treatment type. 
+
+### Our code is as follows:
+
+CREATE SCHEMA cancer;
+
+USE cancer;
+
+#### Cancers table
+CREATE TABLE cancers (
+	PRIMARY KEY (cancer_id),
+    cancer_id TINYINT(2) UNSIGNED,
+    cancer_type VARCHAR(255)
+);
+
+#### Treatments table
+CREATE TABLE treatments (
+	PRIMARY KEY (treatment_id),
+    treatment_id TINYINT(2) UNSIGNED,
+    treatment_type VARCHAR(255)
+);
+    
+#### Patients table and index
+CREATE TABLE patients (
+	PRIMARY KEY (patient_id),
+    patient_id SMALLINT(4) UNSIGNED,
+    cancer_type TINYINT(2) UNSIGNED,
+    cancer_stage TINYINT(1) UNSIGNED,
+    treatment_type TINYINT(2) UNSIGNED,
+    FOREIGN KEY (cancer_type) REFERENCES cancers(cancer_id)
+		ON UPDATE CASCADE,
+	FOREIGN KEY (treatment_type) REFERENCES treatments(treatment_id)
+		ON UPDATE CASCADE
+);
+
+CREATE INDEX cancer_type
+	ON patients(cancer_type);
+    
+CREATE INDEX cancer_stage
+	ON patients(cancer_stage);
+    
+CREATE INDEX treatment_type
+	ON patients(treatment_type);
+    
+#### Visits table and index
+CREATE TABLE visits (
+	PRIMARY KEY (patient_id, visit_num),
+    patient_id SMALLINT(4) UNSIGNED,
+    visit_num SMALLINT(5) UNSIGNED,
+    visit_location TINYINT(1) UNSIGNED,
+    age FLOAT(5, 2),
+    tumor_size FLOAT(5, 2),
+    weight FLOAT(5, 2),
+    FOREIGN KEY (patient_id) REFERENCES patients(patient_id)
+		ON UPDATE CASCADE
+);
+
+CREATE INDEX tumor_size
+	ON visits(tumor_size);
+    
+CREATE INDEX weight
+	ON visits(weight);
+    
+#### Enter data into cancers table
+INSERT INTO cancers (cancer_id, cancer_type)
+	VALUES
+    (1, 'Acute Lymphoblastic Leukemia'),
+	(2, 'Bladder Cancer'),
+	(3, 'Breast Cancer'),
+	(4, 'Cervical Cancer'),
+	(5, 'Colorectal Cancer'),
+	(6, 'Esophageal Cancer'),
+	(7, 'Fallopian Tube Cancer'),
+	(8, 'Gallbadder Cancer'),
+	(9, 'Kidney Cancer'),
+	(10, 'Liver Cancer'),
+	(11, 'Lung Cancer'),
+	(12, 'Mouth Cancer'),
+	(13, 'Nasopharyngeal Cancer'),
+	(14, 'Oral Cancer'),
+	(15, 'Ovarian Cancer'),
+	(16, 'Pancreatic Cancer'),
+	(17, 'Prostate Cancer'),
+	(18, 'Skin Cancer'),
+	(19, 'Stomach Cancer'),
+	(20, 'Thyroid Cancer');
+    
+#### Enter data into treatments table
+INSERT INTO treatments (treatment_id, treatment_type)
+	VALUES
+    (1, 'Hematology'),
+	(2, 'Chemotherapy'),
+	(3, 'Immunotherapy'),
+	(4, 'Targeted Therapy'),
+	(5, 'Infusion Therapy'),
+	(6, 'Genetic Testing'),
+	(7, 'Radiation Therapy'),
+	(8, 'Surgery'),
+	(9, 'Blood & Marrow Transplantation'),
+	(10, 'Cryotherapy'),
+	(11, 'Hormone Therapy'),
+	(12, 'Radiosurgery');
+
+#### Enter data into the patients table
+INSERT INTO patients (patient_id, cancer_type, cancer_stage, treatment_type)
+	VALUES
+    (1, 16, 2, 3),
+    (2, 3, 1, 8),
+    (3, 9, 3, 2);
+
+#### Enter data into the visits table
+INSERT INTO visits (patient_id, visit_num, visit_location, age, tumor_size, weight)
+	VALUES
+    (1, 1, 0, 270.00, 40.35, 120.54),
+    (1, 2, 0, 272.40, 36.14, 126.89),
+    (3, 1, 1, 228.80, 80.82, 102.12),
+    (3, 2, 1, 229.20, 70.01, 106.72);
+    
+#### View
+CREATE VIEW patients_by_tumor_size AS
+	SELECT p.patient_id, p.cancer_type, p.cancer_stage, p.treatment_type, v.visit_num, v.tumor_size, v.weight,
+		DENSE_RANK() OVER(ORDER BY tumor_size DESC) AS tumor_size_rank
+    FROM patients AS p
+    INNER JOIN visits AS v
+		ON p.patient_id = v.patient_id;
+    
+#### Temporary table
+CREATE TEMPORARY TABLE patients_by_visits AS
+	(SELECT p.patient_id, p.cancer_type, p.cancer_stage, p.treatment_type,
+		COUNT(visit_num) AS num_visits
+	FROM patients AS p 
+	LEFT JOIN visits AS v
+		ON p.patient_id = v.patient_id
+	GROUP BY p.patient_id);
+
+SELECT * 
+FROM patients_by_visits
+HAVING num_visits = 0;
+
+#### CTE
+WITH priority AS
+	(SELECT p.patient_id, p.cancer_type, p.cancer_stage, p.treatment_type, v.visit_num, v.age, v.tumor_size, v.weight,
+		CASE 
+			WHEN p.cancer_stage = 3 THEN 'High Priority'
+            ELSE 'Regular Priority'
+		END AS priority_status
+	FROM patients AS p 
+    LEFT JOIN visits AS v
+		ON p.patient_id = v.patient_id
+	ORDER BY p.patient_id)
+
+SELECT * 
+FROM priority
+HAVING priority_status = 'High Priority';

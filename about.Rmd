@@ -5,7 +5,7 @@
 <br>
 <center>
 
-I am currently attending Columbia University for my MS in biostatistics and pharmaceutical statistics, and I am also working part-time in Columbia Irving Medical Center’s data management unit. I recently graduated from UC San Diego with a BS in public health epidemiology and a minor in business. I am actively looking for a 2022 summer internship within the biostatistics and public health fields. Feel free to contact me at wang.eric@columbia.edu! Also, don't forget to [connect](connect.html) with me on social media :)
+Hello! I am currently attending Columbia University for my MS in biostatistics with a focus on pharmaceutical statistics, where I was awarded the Columbia Mailman Scholarship in Public Health. I am currently working full-time in Columbia Irving Medical Center’s biostatistics department as a Data Management Specialist, but it will be back to part-time during the school year. I graduated from UC San Diego in 2021 with a BS in public health epidemiology and a minor in business. Feel to contact me at wang.eric@columbia.edu. Also, don't forget to [connect](connect.html) with me on social media :)
 
 <img src="images/columbia.jpg" style="width:75%"> 
 
@@ -14,7 +14,7 @@ I am currently attending Columbia University for my MS in biostatistics and phar
 Columbia University,
 Mailman School of Public Health,
 Department of Biostatistics,
-100 Haven Ave 17E,
+722 W 168th Street,
 New York, New York 10032
 
 Click here to return to the [main](index.html) page.

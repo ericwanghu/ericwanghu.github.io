@@ -11,7 +11,7 @@
 
 
 
-<title>connect.knit</title>
+<title>Cancer Patient SQL Project</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -30,6 +30,7 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
@@ -217,6 +218,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -315,27 +319,124 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
+
+<h1 class="title toc-ignore">Cancer Patient SQL Project</h1>
 
 </div>
 
 
-<center>
-<h1>
-connect
-</h1>
-</center>
-<br>
-<center>
-<p><strong>Feel free to connect with me on any of the following social
-platforms!</strong></p>
-<p><a href="https://www.linkedin.com/in/ericwanggg">LinkedIn</a></p>
-<p><a href="https://twitter.com/Ericwanggg">Twitter</a></p>
-<p><a href="https://www.instagram.com/ericwanggg/">Instagram</a></p>
-<p><a href="https://github.com/ericwanghu">GitHub</a></p>
-<p><img src="images/friends.jpg" style="width:75%"></p>
-<p>Click here to return to the <a href="index.html">main</a> page.</p>
+<p>My partner Saryu Patel and I created a database of cancer patients
+where we stored variables patient ID, cancer type (lookup table), cancer
+stage, treatment (lookup table), visit, visit date, visit location (New
+York City/Boston/Baltimore), age (months), tumor size, and weight. In
+the parent table, we stored the patient ID, cancer type (lookup table),
+cancer stage, and treatment type (lookup table). In the child table, we
+stored the visit number, visit date, visit location (New York
+City/Boston/Baltimore), age (months), tumor size, and weight. We also
+created lookup tables for cancer type and treatment type.</p>
+<div id="our-code-is-as-follows" class="section level3">
+<h3>Our code is as follows:</h3>
+<p>CREATE SCHEMA cancer;</p>
+<p>USE cancer;</p>
+<div id="cancers-table" class="section level4">
+<h4>Cancers table</h4>
+<p>CREATE TABLE cancers ( PRIMARY KEY (cancer_id), cancer_id TINYINT(2)
+UNSIGNED, cancer_type VARCHAR(255) );</p>
+</div>
+<div id="treatments-table" class="section level4">
+<h4>Treatments table</h4>
+<p>CREATE TABLE treatments ( PRIMARY KEY (treatment_id), treatment_id
+TINYINT(2) UNSIGNED, treatment_type VARCHAR(255) );</p>
+</div>
+<div id="patients-table-and-index" class="section level4">
+<h4>Patients table and index</h4>
+<p>CREATE TABLE patients ( PRIMARY KEY (patient_id), patient_id
+SMALLINT(4) UNSIGNED, cancer_type TINYINT(2) UNSIGNED, cancer_stage
+TINYINT(1) UNSIGNED, treatment_type TINYINT(2) UNSIGNED, FOREIGN KEY
+(cancer_type) REFERENCES cancers(cancer_id) ON UPDATE CASCADE, FOREIGN
+KEY (treatment_type) REFERENCES treatments(treatment_id) ON UPDATE
+CASCADE );</p>
+<p>CREATE INDEX cancer_type ON patients(cancer_type);</p>
+<p>CREATE INDEX cancer_stage ON patients(cancer_stage);</p>
+<p>CREATE INDEX treatment_type ON patients(treatment_type);</p>
+</div>
+<div id="visits-table-and-index" class="section level4">
+<h4>Visits table and index</h4>
+<p>CREATE TABLE visits ( PRIMARY KEY (patient_id, visit_num), patient_id
+SMALLINT(4) UNSIGNED, visit_num SMALLINT(5) UNSIGNED, visit_location
+TINYINT(1) UNSIGNED, age FLOAT(5, 2), tumor_size FLOAT(5, 2), weight
+FLOAT(5, 2), FOREIGN KEY (patient_id) REFERENCES patients(patient_id) ON
+UPDATE CASCADE );</p>
+<p>CREATE INDEX tumor_size ON visits(tumor_size);</p>
+<p>CREATE INDEX weight ON visits(weight);</p>
+</div>
+<div id="enter-data-into-cancers-table" class="section level4">
+<h4>Enter data into cancers table</h4>
+<p>INSERT INTO cancers (cancer_id, cancer_type) VALUES (1, ‘Acute
+Lymphoblastic Leukemia’), (2, ‘Bladder Cancer’), (3, ‘Breast Cancer’),
+(4, ‘Cervical Cancer’), (5, ‘Colorectal Cancer’), (6, ‘Esophageal
+Cancer’), (7, ‘Fallopian Tube Cancer’), (8, ‘Gallbadder Cancer’), (9,
+‘Kidney Cancer’), (10, ‘Liver Cancer’), (11, ‘Lung Cancer’), (12, ‘Mouth
+Cancer’), (13, ‘Nasopharyngeal Cancer’), (14, ‘Oral Cancer’), (15,
+‘Ovarian Cancer’), (16, ‘Pancreatic Cancer’), (17, ‘Prostate Cancer’),
+(18, ‘Skin Cancer’), (19, ‘Stomach Cancer’), (20, ‘Thyroid Cancer’);</p>
+</div>
+<div id="enter-data-into-treatments-table" class="section level4">
+<h4>Enter data into treatments table</h4>
+<p>INSERT INTO treatments (treatment_id, treatment_type) VALUES (1,
+‘Hematology’), (2, ‘Chemotherapy’), (3, ‘Immunotherapy’), (4, ‘Targeted
+Therapy’), (5, ‘Infusion Therapy’), (6, ‘Genetic Testing’), (7,
+‘Radiation Therapy’), (8, ‘Surgery’), (9, ‘Blood &amp; Marrow
+Transplantation’), (10, ‘Cryotherapy’), (11, ‘Hormone Therapy’), (12,
+‘Radiosurgery’);</p>
+</div>
+<div id="enter-data-into-the-patients-table" class="section level4">
+<h4>Enter data into the patients table</h4>
+<p>INSERT INTO patients (patient_id, cancer_type, cancer_stage,
+treatment_type) VALUES (1, 16, 2, 3), (2, 3, 1, 8), (3, 9, 3, 2);</p>
+</div>
+<div id="enter-data-into-the-visits-table" class="section level4">
+<h4>Enter data into the visits table</h4>
+<p>INSERT INTO visits (patient_id, visit_num, visit_location, age,
+tumor_size, weight) VALUES (1, 1, 0, 270.00, 40.35, 120.54), (1, 2, 0,
+272.40, 36.14, 126.89), (3, 1, 1, 228.80, 80.82, 102.12), (3, 2, 1,
+229.20, 70.01, 106.72);</p>
+</div>
+<div id="view" class="section level4">
+<h4>View</h4>
+<p>CREATE VIEW patients_by_tumor_size AS SELECT p.patient_id,
+p.cancer_type, p.cancer_stage, p.treatment_type, v.visit_num,
+v.tumor_size, v.weight, DENSE_RANK() OVER(ORDER BY tumor_size DESC) AS
+tumor_size_rank FROM patients AS p INNER JOIN visits AS v ON
+p.patient_id = v.patient_id;</p>
+</div>
+<div id="temporary-table" class="section level4">
+<h4>Temporary table</h4>
+<p>CREATE TEMPORARY TABLE patients_by_visits AS (SELECT p.patient_id,
+p.cancer_type, p.cancer_stage, p.treatment_type, COUNT(visit_num) AS
+num_visits FROM patients AS p LEFT JOIN visits AS v ON p.patient_id =
+v.patient_id GROUP BY p.patient_id);</p>
+<p>SELECT * FROM patients_by_visits HAVING num_visits = 0;</p>
+</div>
+<div id="cte" class="section level4">
+<h4>CTE</h4>
+<p>WITH priority AS (SELECT p.patient_id, p.cancer_type, p.cancer_stage,
+p.treatment_type, v.visit_num, v.age, v.tumor_size, v.weight, CASE WHEN
+p.cancer_stage = 3 THEN ‘High Priority’ ELSE ‘Regular Priority’ END AS
+priority_status FROM patients AS p LEFT JOIN visits AS v ON p.patient_id
+= v.patient_id ORDER BY p.patient_id)</p>
+<p>SELECT * FROM priority HAVING priority_status = ‘High Priority’;</p>
+</div>
+</div>
 
 
 
@@ -370,6 +471,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
