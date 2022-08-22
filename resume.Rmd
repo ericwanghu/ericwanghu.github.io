@@ -7,10 +7,11 @@ title: "Resume"
 
 **Columbia University** <div style="text-align: right"> *New York, NY* </div>
 
-M.S. Biostatistics
+M.S. Biostatistics - Pharmaceutical Statistics
 
-- Pharmaceutical Statistics Track
-- Expected Graduation: Spring 2023
+- Columbia Mailman Scholarship in Public Health
+- GPA: 3.62
+- Graduation: Spring 2023
 
 **UC San Diego** <div style="text-align: right"> *La Jolla, CA* </div>
 
@@ -19,7 +20,7 @@ B.S. Public Health - Epidemiology
 Minor in Business | PofC in Japanese Studies
 
 - Honors with Highest Distinction
-- Overall GPA: 3.71 | Major GPA: 3.82
+- GPA: 3.82
 - Graduated: Spring 2021
 
 ### Publications & Appearances
@@ -87,6 +88,7 @@ UC San Diego <div style="text-align: right"> *Jun 2019 - Aug 2019* </div>
 
 ### Achievements
 
+- Columbia Mailman Scholarship in Public Health
 - Honors with Highest Distinction <div style="text-align: right"> *2021* </div>
 - Public Health Honors Practicum <div style="text-align: right"> *2020* </div>
 - Provost's Honors <div style="text-align: right"> *2017 - 2021* </div>
